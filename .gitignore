@@ -1,0 +1,18 @@
+# Root ignore rules
+.env
+**/.env
+.env.txt
+**/.env.txt
+*.env.txt
+*.pyc
+__pycache__/
+.venv/
+venv/
+node_modules/
+dist/
+media/
+*.sqlite3
+.DS_Store
+Thumbs.db
+.git_nested_backup
+**/.git_nested_backup

@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  background-color: #F4F6FA;
+  color: #131D33;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .ui-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .ui-btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-nude-800 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-nude-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .ui-btn-accent {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-gold-500 px-4 py-2.5 text-sm font-semibold text-nude-900 transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .ui-btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-nude-300 bg-white px-4 py-2.5 text-sm font-semibold text-nude-800 transition-all duration-300 hover:-translate-y-0.5 hover:bg-nude-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .ui-btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-transparent px-4 py-2.5 text-sm font-semibold text-nude-600 transition-colors hover:bg-nude-100 hover:text-nude-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .ui-btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-red-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .ui-input {
+    @apply w-full rounded-lg border border-nude-300 bg-white px-3 py-2.5 text-sm text-nude-900 outline-none transition-colors placeholder:text-nude-400 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 disabled:bg-nude-50 disabled:text-nude-400;
+  }
+
+  .ui-label {
+    @apply mb-1.5 block text-sm font-medium text-nude-700;
+  }
+
+  .ui-card {
+    @apply rounded-xl border border-nude-200 bg-white shadow-sm;
+  }
+
+  .ui-card-elevated {
+    @apply rounded-xl border border-nude-200/80 bg-white transition-all duration-300 hover:-translate-y-0.5;
+    box-shadow: 0 8px 24px rgba(19, 29, 51, 0.08);
+  }
+
+  .ui-card-elevated:hover {
+    box-shadow: 0 14px 36px rgba(19, 29, 51, 0.12);
+  }
+
+  .ui-table {
+    @apply w-full text-left text-sm;
+  }
+
+  .ui-table thead tr {
+    @apply border-b border-nude-200 bg-nude-50 text-nude-500;
+  }
+
+  .ui-table th {
+    @apply px-3 py-3 font-medium;
+  }
+
+  .ui-table tbody tr {
+    @apply border-b border-nude-100 transition-colors hover:bg-nude-50/80;
+  }
+
+  .ui-table td {
+    @apply px-3 py-3 text-nude-800;
+  }
+
+  .page-container {
+    @apply mx-auto w-full max-w-6xl px-4;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stat-card-media img {
+    @apply transition-transform duration-700 ease-out;
+  }
+
+  .stat-card-media:hover img {
+    transform: scale(1.06);
+  }
+
+  .orphan-card-media img {
+    @apply transition-transform duration-700 ease-out;
+  }
+
+  .group:hover .orphan-card-media img {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes notification-progress {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .animate-hero-zoom,
+  .animate-soft-float,
+  .animate-pulse-soft,
+  .animate-fade-up {
+    animation: none !important;
+  }
+}
