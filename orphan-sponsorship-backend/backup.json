@@ -1,0 +1,1635 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-08-17T22:48:52.601Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "Gloss Stars",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-08-17T22:50:09.659Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "5",
+    "object_repr": " ()",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-08-17T22:55:26.366Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Noor Fatima (Pending)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-08-17T22:56:43.274Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Noor Fatima (Approved)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Application status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-08-17T23:04:39.570Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Noor Fatima (Approved)",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-08-22T19:42:38.935Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "10",
+    "object_repr": "Qasim Abid (Approved)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Application status\", \"Reviewed by\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-09-02T21:29:37.543Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "10",
+    "object_repr": "Qasim Abid (Approved)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Student class\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-09-02T22:42:21.758Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Zaya Jalal (Pending)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Guardian name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-09-02T22:46:01.574Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Muhammad Ahmed (Pending)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"School name text\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-09-02T22:47:50.159Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Kainat Ali (Pending)",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-09-03T20:54:54.969Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "10",
+    "object_repr": "Qasim Abid (Approved)",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-09-03T20:55:19.934Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "9",
+    "object_repr": "Eman Fatima (Approved)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Application status\", \"Reviewed by\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-09-03T20:55:38.885Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "8",
+    "object_repr": "Zainab Kareem (Approved)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Application status\", \"Reviewed by\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-09-03T20:55:55.756Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "Marva Ali (Approved)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Application status\", \"Reviewed by\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-09-03T20:56:16.726Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Hamza Ahmed (Approved)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Application status\", \"Reviewed by\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-09-03T20:56:34.045Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Kainat Ali (Approved)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Application status\", \"Reviewed by\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-09-03T20:56:49.635Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Muhammad Ahmed (Approved)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Application status\", \"Reviewed by\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-09-03T20:57:08.073Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Muhammad Ali (Approved)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Application status\", \"Reviewed by\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-09-14T15:31:44.365Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "13",
+    "object_repr": "Uzma Kareem (orphan)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2026-09-14T16:01:17.692Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "15",
+    "object_repr": "Parveen Abid (orphan)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2026-09-14T16:01:25.241Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "12",
+    "object_repr": "Shoukat Ali (orphan)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2026-09-14T16:01:37.797Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "2",
+    "object_repr": "Maheen Malik (donor)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2026-09-14T16:01:47.623Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "7",
+    "object_repr": "Asma Ikram (orphan)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2026-09-14T16:01:55.716Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "6",
+    "object_repr": "Asma Majeed (donor)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2026-09-14T16:02:03.877Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "3",
+    "object_repr": "Esha Irfan (donor)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2026-09-14T16:02:12.059Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "14",
+    "object_repr": "Faheem Ghulam (orphan)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2026-09-14T16:02:23.308Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "9",
+    "object_repr": "Haleema Saad (orphan)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2026-09-14T16:02:32.410Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "8",
+    "object_repr": "Haleema Sadia (orphan)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2026-09-14T16:02:40.844Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "16",
+    "object_repr": "Sawera Ali (school)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2026-09-14T16:02:50.232Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "4",
+    "object_repr": "Esha Khan (orphan)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2026-09-14T16:02:59.236Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "10",
+    "object_repr": "Haroon Shuja (orphan)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2026-09-14T16:03:08.382Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "11",
+    "object_repr": "Muhammad Usman (orphan)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2026-09-14T16:03:46.911Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Noor Fatima (Approved)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2026-09-14T18:51:29.271Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "5",
+    "object_repr": "Decent School",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"School name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2026-09-14T18:51:55.399Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "5",
+    "object_repr": "Decent School",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2026-09-14T18:52:45.874Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "26",
+    "object_repr": "Ghussan Irfan (school)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2026-09-14T18:54:46.473Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "27",
+    "object_repr": "Decent School (donor)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2026-09-14T21:56:54.425Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "36",
+    "object_repr": "UMT School (donor)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ct6b32zachr2i1p3ly2hepjxkfm7ha1a",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pCZAuK4dO8ZGpgBqRpISrsy3l2bdKHb_977LzWGdSnj2tM8TqLOCtXhd4uBH6luQO6h3prmVpd5inpT9E67vjZJz8vu_h2U0Mu3zsTGOxAHjIzWCLADsEmcDQKWMlHwYuiYxKAByhENexjAMg4n79T7A9GYNv8:1x6329:5bpMW10XOABzEEUR5ZqJZ9iIU0ixqHrnyTlFA5dU6mo",
+    "expire_date": "2026-09-28T09:31:29.883Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ih2rbk5ruu7mppprddp9bz3rjpqsbgtb",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAUBe_iGll44dumpM8Zor8YHEC2FCcV4u4QKQW0b2beS424LmVce57HSdRZGXX43Qj5kesG5I711jS3uswT6U3RO-16aJKfl939OyjYy7dmSmAFAnmwjhORN_4ayLgIjgiNRxI-gs_RRLGS7IkBQhaIBJw9qvcH5qw4Mg:1x1s39:71zUa1rsdkuJ28SEUfyXe_I2_w29UHnNo4nXpcwK3pc",
+    "expire_date": "2026-09-16T20:59:15.447Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "lru3xn4vypry32ysm22dqc6j297mopsb",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAUBe_iGll44dumpM8Zor8YHEC2FCcV4u4QKQW0b2beS424LmVce57HSdRZGXX43Qj5kesG5I711jS3uswT6U3RO-16aJKfl939OyjYy7dmSmAFAnmwjhORN_4ayLgIjgiNRxI-gs_RRLGS7IkBQhaIBJw9qvcH5qw4Mg:1wpgtc:xHidivEZwm1KaF0C3hTeIKABy9Evj1E5i_QYGqEKOpg",
+    "expire_date": "2026-08-14T06:39:04.185Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "xouk3pjrckmmetas1km49nwelp4qe468",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAUBe_iGll44dumpM8Zor8YHEC2FCcV4u4QKQW0b2beS424LmVce57HSdRZGXX43Qj5kesG5I711jS3uswT6U3RO-16aJKfl939OyjYy7dmSmAFAnmwjhORN_4ayLgIjgiNRxI-gs_RRLGS7IkBQhaIBJw9qvcH5qw4Mg:1ww4Bh:OCKTZuj7Kip3CyPV5xb-zuaVVvfDljkC0ipLH82w5gI",
+    "expire_date": "2026-08-31T20:44:05.650Z"
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$vvSORhMVCIvfoWWD4UIG3P$ZfYqPVVt2fBZn66neg5Dr0OecOsTV9Y0WxwSskpkdbQ=",
+    "last_login": "2026-09-14T09:31:29.879Z",
+    "is_superuser": true,
+    "username": "Maheen",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-07-31T06:36:25.320Z",
+    "email": "maheen.aftab.ma.30@gmail.com",
+    "full_name": "Maheen Aftab",
+    "phone": "",
+    "role": "admin",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$8onFN6qUkQKBYwqNdNdH9k$VU1fbhswv9g6xuEEhj2P8HDZ9FejgTRuIts+vBY9ng0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Sawera22",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-08-17T22:50:03.574Z",
+    "email": "",
+    "full_name": "",
+    "phone": "",
+    "role": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 17,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$HUrBMUeSQ4q2WAzGIhBfXW$ng7YDNAyNC1tljw//CMZm2H5uYgojsBEz4uQZKApvrE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "bushra.aftab.ba.30@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-14T16:31:40.588Z",
+    "email": "bushra.aftab.ba.30@gmail.com",
+    "full_name": "Bushra Aftab",
+    "phone": "03264779777",
+    "role": "donor",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 18,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$rFaWWvviRZJP9wqucc3ug2$5jw0NpJ+jr+elTWlnHmJMBFAcWTSpJ7oKZDpmCx4Pv8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "eshairfan2806@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-14T16:48:52.515Z",
+    "email": "eshairfan2806@gmail.com",
+    "full_name": "Esha Irfan",
+    "phone": "03228854559",
+    "role": "orphan",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 19,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$oQ8jcPsF5fPE20CdwBcbM2$iTg1bPtRZk/mlu2wL+c43Eki3jAs40wDs0KsHuWq+fo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "sawerairfan28@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-14T16:51:58.222Z",
+    "email": "sawerairfan28@gmail.com",
+    "full_name": "Sawera Public School",
+    "phone": "03009466007",
+    "role": "school",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 20,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$oMIu3oLtgZD0SX0RgtqdhF$6Hrw43BwnslCNo6W5SLUYIUbuQ48Cv+fWT1+MMs3TXY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "irfanesha2004@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-14T16:54:02.412Z",
+    "email": "irfanesha2004@gmail.com",
+    "full_name": "Irfan Iqbal",
+    "phone": "03118854568",
+    "role": "donor",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 21,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$GYFlqg11uo40NYyfIS1Sah$bVoWGrYvfBXgCHVnp6inDWhNc7PZUtQ6dfZXa5VbrQs=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "eshairfan977@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-14T16:58:09.447Z",
+    "email": "eshairfan977@gmail.com",
+    "full_name": "Esha Iqbal",
+    "phone": "03228855559",
+    "role": "orphan",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 22,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$8Mbeu5XwKQZZfmbm9sMZqn$D+yqR0heegCpyiLuRRFhhqwX+W9YUp2IVWceDm/vbLU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "malaikaishfaq9@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-14T17:44:48.390Z",
+    "email": "malaikaishfaq9@gmail.com",
+    "full_name": "Malaika Ishfaq",
+    "phone": "03009403003",
+    "role": "donor",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 23,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$8fHMe08kO31IkIqCe1xBUf$Ojm7HsBUQ/HkEiV5vkBQv73r4ZbS5K49MHtOMofrIEc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "m.hassanaftab.206@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-14T17:57:59.409Z",
+    "email": "m.hassanaftab.206@gmail.com",
+    "full_name": "Ideal Study System",
+    "phone": "03228854346",
+    "role": "school",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 24,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$KfKXceYvK67Lz9fuFe56Q7$ZpUxJ2uF+TTyD2ZNCvwTtLDMjHNPN90KIO38GdTfPN4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "haramghussan@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-14T18:30:30.023Z",
+    "email": "haramghussan@gmail.com",
+    "full_name": "Haram Ghussan",
+    "phone": "03006667778",
+    "role": "donor",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 25,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$dM8f9zRHC8FDLZU7O7L4fj$qP8AK4omwe/rz2xsajNZYtZjH3eqVTthUpQ9WWGOxhc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "sameerimran967@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-14T18:33:19.436Z",
+    "email": "sameerimran967@gmail.com",
+    "full_name": "Sameer Imran",
+    "phone": "03014678990",
+    "role": "orphan",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 28,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$uDeRVam9F2dkQKN95dmbmT$hjJs9wF2VeilJM/nBeZqcC6Tt2fbh99mcn7lTqIICBk=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "ioghussan@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-14T20:26:52.541Z",
+    "email": "ioghussan@gmail.com",
+    "full_name": "Decent School",
+    "phone": "03225567765",
+    "role": "school",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 29,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$hAbXvd6TboDiOlZ641ShTG$lNzU52PctSNcufzzVC2wdCBYB7tFG4aFgaFGRbMgas8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "ghussanirfan0213@yahoo.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-14T20:31:18.096Z",
+    "email": "ghussanirfan0213@yahoo.com",
+    "full_name": "Ghussan Iqbal",
+    "phone": "03225677844",
+    "role": "orphan",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 30,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$NGgJNAZyixdu7MaNJrJCC3$4J8gKoqnP7g7FprKmDV7qI5AXJrJxGw3KA+06ltjiy0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "ibutt0559@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-14T21:04:06.204Z",
+    "email": "ibutt0559@gmail.com",
+    "full_name": "Imran Khalid",
+    "phone": "03267888667",
+    "role": "donor",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 31,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$BadmXbChKLFDyi28VCJs0U$sGt3b0uW6LfKT1T+geDnbsDhsejPtNPYGJhe8fF/81s=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "alinaaaahmad@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-14T21:36:33.035Z",
+    "email": "alinaaaahmad@gmail.com",
+    "full_name": "Alina Ahmad",
+    "phone": "03226636747",
+    "role": "orphan",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 32,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$Dx7CdPkFS2zWagjSGf284N$1819Cuvg1KTtJ93X+2RtW6lrG4wvwtFmOgaZ3ZHpiN0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "haseebnoaman8bp@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-14T21:44:27.323Z",
+    "email": "haseebnoaman8bp@gmail.com",
+    "full_name": "Haseeb Noaman",
+    "phone": "03006627272",
+    "role": "orphan",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 33,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$4Qv41I5r2FmWreAM6ZrADH$Pm5c9WSet2h0cam/05R1ZLweqw1n9X1mGSYrMVxoBf4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "mairamaqsood@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-14T21:51:20.516Z",
+    "email": "mairamaqsood@gmail.com",
+    "full_name": "Maira Maqsood",
+    "phone": "03227737388",
+    "role": "donor",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 34,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$4X9GE61HPT8RggUAXdb1oh$L0lXHnN/zg383JZwPHCSKQlUuwqrfJfCEnub35aEtjc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "muskanashraf222@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-14T21:52:40.470Z",
+    "email": "muskanashraf222@gmail.com",
+    "full_name": "Muskan Ashraf",
+    "phone": "03007727828",
+    "role": "donor",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 35,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$lyfmhs3VnjTPoiUUN5bBTg$64i9M/lqv+vGhVgUObS4xl1uKdjTgeXlYRFr1HR4kco=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "sobiairfan760@gmial.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-14T21:54:35.776Z",
+    "email": "sobiairfan760@gmial.com",
+    "full_name": "Sobia Irfan",
+    "phone": "03002452627",
+    "role": "donor",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 37,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$cTit3zAhYF8ukEe4vPMWmA$hzQsoEIMYedZ7/ngWCGbYAwlbb2xdzmDXUUXb3Vy0Co=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "s2023405024@umt.edu.pk",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-14T21:57:51.542Z",
+    "email": "s2023405024@umt.edu.pk",
+    "full_name": "UMT School",
+    "phone": "03016337388",
+    "role": "school",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 38,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$s0Qi6gB1IbSVc3Wwkoep74$GSBdL8RUHdR3fV9IMsAmtGJHTqChgyGn9Bi1Zcidc04=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "dnasa1920@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-14T21:59:05.350Z",
+    "email": "dnasa1920@gmail.com",
+    "full_name": "Gloss Star",
+    "phone": "03013637383",
+    "role": "school",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 39,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$co3mVLZaiViAtlV9InOfsp$iAc3sL0PLF7TWSZimvof+h0uRWabfGYxuA7fYfRBtQU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "minhamalik048@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-16T22:16:43.840Z",
+    "email": "minhamalik048@gmail.com",
+    "full_name": "Minha Malik",
+    "phone": "03227766655",
+    "role": "orphan",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 40,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$4prxOqQva1hIwG1cxNFG0H$m+IW2FTwW97UmpIg9/0wDkrkRrVGTb/pWLxKd/I/JLU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "rasakh834@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-18T11:09:49.443Z",
+    "email": "rasakh834@gmail.com",
+    "full_name": "Rasakh Ali",
+    "phone": "03225625626",
+    "role": "orphan",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 41,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$HikcyBDrbwmAXfLx9xBW5f$ZAMNvIW/+bOwhPkA9jWmBB9Dz3ECDIsEUCVU1gIJdHc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "samiullah14071407@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-23T11:50:25.083Z",
+    "email": "samiullah14071407@gmail.com",
+    "full_name": "Sami Ali",
+    "phone": "03226678888",
+    "role": "donor",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 42,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$pSinl8OWakEj9saAdCG7we$mlebit+fF0kQoXIVdzF+puzULP9JJPo7VGAVrAac/Bs=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "hadiamalik797@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-23T11:52:16.339Z",
+    "email": "hadiamalik797@gmail.com",
+    "full_name": "Hadia Ali",
+    "phone": "03224565787",
+    "role": "orphan",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 43,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$WqKlawY0O4YZNI7VZSDW2v$dplcVjEr8xv9KZocgQ4gZSP8a0vFBMOVNUmdmpaIXOA=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "faraz.shoukat@mao.edu.pk",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-23T12:36:50.107Z",
+    "email": "faraz.shoukat@mao.edu.pk",
+    "full_name": "Minha Malik",
+    "phone": "03016667899",
+    "role": "orphan",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 44,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$BLvqcdMqZ8Uq2WCdSwPjBw$5Iy4CeHdufKtEDsLxjoAjEFs8YaO49pNtIJ3MmnZr3E=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "farazshoukat2016@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-23T12:38:33.735Z",
+    "email": "farazshoukat2016@gmail.com",
+    "full_name": "Faraz Shoukat",
+    "phone": "03224566778",
+    "role": "orphan",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.otpverification",
+  "pk": 26,
+  "fields": {
+    "email": "samiullahjutt1407@gmail.com",
+    "otp_code": "971293",
+    "created_at": "2026-09-23T11:48:25.442Z"
+  }
+},
+{
+  "model": "orphans.orphan",
+  "pk": 11,
+  "fields": {
+    "guardian": 18,
+    "school": 3,
+    "full_name": "Asad Amjad",
+    "date_of_birth": "2015-12-20",
+    "age": 11,
+    "gender": "male",
+    "guardian_name": "Esha Irfan ( Aunt )",
+    "guardian_cnic": "35202-1237654-2",
+    "child_cnic": "",
+    "address": "House no. 12, Pico Colony, Lahore.",
+    "school_name_text": "Sawera Public School",
+    "school_phone": "",
+    "student_class": "3",
+    "is_currently_studying": true,
+    "monthly_fee": "2000.00",
+    "death_certificate": "documents/death_certificates/dc.pdf",
+    "b_form_document": "",
+    "photo": "documents/photos/Asad.Amjad.jpg",
+    "application_status": "Approved",
+    "submitted_at": "2026-09-14T17:09:27.556Z",
+    "reviewed_by": 1
+  }
+},
+{
+  "model": "orphans.orphan",
+  "pk": 12,
+  "fields": {
+    "guardian": 21,
+    "school": 4,
+    "full_name": "Marva Ali",
+    "date_of_birth": "2013-02-22",
+    "age": 13,
+    "gender": "female",
+    "guardian_name": "Esha Iqbal",
+    "guardian_cnic": "35202-2223067-4",
+    "child_cnic": "",
+    "address": "3 Asharf Street, Baby Ground, Lahore.",
+    "school_name_text": "Ideal Study System",
+    "school_phone": "",
+    "student_class": "6",
+    "is_currently_studying": true,
+    "monthly_fee": "3000.00",
+    "death_certificate": "documents/death_certificates/dc_OAofw0x.pdf",
+    "b_form_document": "",
+    "photo": "documents/photos/Marva.Ali.jpg",
+    "application_status": "Approved",
+    "submitted_at": "2026-09-14T17:55:05.641Z",
+    "reviewed_by": 1
+  }
+},
+{
+  "model": "orphans.orphan",
+  "pk": 13,
+  "fields": {
+    "guardian": 25,
+    "school": 6,
+    "full_name": "Muhammad Bilal",
+    "date_of_birth": "2016-03-13",
+    "age": 10,
+    "gender": "male",
+    "guardian_name": "Sameer Imran ( Uncle )",
+    "guardian_cnic": "35202-2130555-7",
+    "child_cnic": "",
+    "address": "House no. 18, Insaf Road, Sabzazar Lahore.",
+    "school_name_text": "Decent School",
+    "school_phone": "",
+    "student_class": "2",
+    "is_currently_studying": true,
+    "monthly_fee": "2000.00",
+    "death_certificate": "documents/death_certificates/dc_JAMPzDk.pdf",
+    "b_form_document": "",
+    "photo": "documents/photos/Muhammad.Bilal.jpg",
+    "application_status": "Approved",
+    "submitted_at": "2026-09-14T18:41:38.231Z",
+    "reviewed_by": 1
+  }
+},
+{
+  "model": "orphans.orphan",
+  "pk": 14,
+  "fields": {
+    "guardian": 29,
+    "school": 6,
+    "full_name": "Noor Fatima",
+    "date_of_birth": "2017-12-31",
+    "age": 9,
+    "gender": "female",
+    "guardian_name": "Ghussan Iqbal ( Uncle )",
+    "guardian_cnic": "35202-2130987-7",
+    "child_cnic": "",
+    "address": "House no. 13A, Insaf Road, Sabzazar Lahore.",
+    "school_name_text": "Decent School",
+    "school_phone": "",
+    "student_class": "1",
+    "is_currently_studying": true,
+    "monthly_fee": "2000.00",
+    "death_certificate": "documents/death_certificates/dc_Ngs0UjM.pdf",
+    "b_form_document": "",
+    "photo": "documents/photos/Noor.Fatima.jpg",
+    "application_status": "Approved",
+    "submitted_at": "2026-09-14T20:53:46.430Z",
+    "reviewed_by": 1
+  }
+},
+{
+  "model": "orphans.orphan",
+  "pk": 15,
+  "fields": {
+    "guardian": 31,
+    "school": 7,
+    "full_name": "Asghar Ali",
+    "date_of_birth": "2013-03-12",
+    "age": 14,
+    "gender": "male",
+    "guardian_name": "Alina Ahmad ( Aunt )",
+    "guardian_cnic": "35202-6748738-3",
+    "child_cnic": "",
+    "address": "43 H,  Kareem Park, Shadra.",
+    "school_name_text": "UMT School",
+    "school_phone": "",
+    "student_class": "5",
+    "is_currently_studying": true,
+    "monthly_fee": "2500.00",
+    "death_certificate": "documents/death_certificates/dc_lGeq9vA.pdf",
+    "b_form_document": "",
+    "photo": "documents/photos/Asghar.Ali.png",
+    "application_status": "Approved",
+    "submitted_at": "2026-09-14T21:42:57.245Z",
+    "reviewed_by": 1
+  }
+},
+{
+  "model": "orphans.orphan",
+  "pk": 16,
+  "fields": {
+    "guardian": 32,
+    "school": 8,
+    "full_name": "Asma Fazal",
+    "date_of_birth": "2011-08-03",
+    "age": 15,
+    "gender": "female",
+    "guardian_name": "Haseeb Noaman",
+    "guardian_cnic": "35202-6647748-7",
+    "child_cnic": "",
+    "address": "16 Sattar Street, Alamgir Park, Lahore.",
+    "school_name_text": "Gloss Star",
+    "school_phone": "",
+    "student_class": "6",
+    "is_currently_studying": true,
+    "monthly_fee": "3000.00",
+    "death_certificate": "documents/death_certificates/dc_XEb89ap.pdf",
+    "b_form_document": "",
+    "photo": "documents/photos/Asma.Fazal.jpg",
+    "application_status": "Approved",
+    "submitted_at": "2026-09-14T21:49:54.853Z",
+    "reviewed_by": 1
+  }
+},
+{
+  "model": "orphans.orphan",
+  "pk": 17,
+  "fields": {
+    "guardian": 42,
+    "school": null,
+    "full_name": "Muhammad Qasim",
+    "date_of_birth": "2018-12-04",
+    "age": 8,
+    "gender": "male",
+    "guardian_name": "Hadia Ali",
+    "guardian_cnic": "35202-2130990-3",
+    "child_cnic": "",
+    "address": "House no. 18 , Shalimar Bagh, Lahore.",
+    "school_name_text": "UMT School",
+    "school_phone": "",
+    "student_class": "3",
+    "is_currently_studying": true,
+    "monthly_fee": "0.00",
+    "death_certificate": "documents/death_certificates/dc_lc3brei.pdf",
+    "b_form_document": "",
+    "photo": "documents/photos/Asad.Amjad_UKLWdkk.jpg",
+    "application_status": "Pending",
+    "submitted_at": "2026-09-23T11:56:01.450Z",
+    "reviewed_by": null
+  }
+},
+{
+  "model": "orphans.orphan",
+  "pk": 18,
+  "fields": {
+    "guardian": 44,
+    "school": null,
+    "full_name": "Ahad Ahmad",
+    "date_of_birth": "2017-02-04",
+    "age": 9,
+    "gender": "male",
+    "guardian_name": "Faraz Shoukat (Uncle)",
+    "guardian_cnic": "35202-4567899-9",
+    "child_cnic": "35202-7737338-3",
+    "address": "House no. 17, Bhatti gate, Lahore.",
+    "school_name_text": "Decent School",
+    "school_phone": "",
+    "student_class": "6",
+    "is_currently_studying": true,
+    "monthly_fee": "0.00",
+    "death_certificate": "documents/death_certificates/dc_pXtyare.pdf",
+    "b_form_document": "documents/b_forms/CamScanner_23-09-2026_17.381.pdf",
+    "photo": "documents/photos/Muhammad.Bilal_TffXKC9.jpg",
+    "application_status": "Pending",
+    "submitted_at": "2026-09-23T12:45:41.417Z",
+    "reviewed_by": null
+  }
+},
+{
+  "model": "schools.school",
+  "pk": 3,
+  "fields": {
+    "user": 19,
+    "school_name": "Sawera Public School",
+    "location": "",
+    "contact_email": "sawerairfan28@gmail.com",
+    "is_approved": true
+  }
+},
+{
+  "model": "schools.school",
+  "pk": 4,
+  "fields": {
+    "user": 23,
+    "school_name": "Ideal Study System",
+    "location": "",
+    "contact_email": "m.hassanaftab.206@gmail.com",
+    "is_approved": true
+  }
+},
+{
+  "model": "schools.school",
+  "pk": 6,
+  "fields": {
+    "user": 28,
+    "school_name": "Decent School",
+    "location": "",
+    "contact_email": "ioghussan@gmail.com",
+    "is_approved": true
+  }
+},
+{
+  "model": "schools.school",
+  "pk": 7,
+  "fields": {
+    "user": 37,
+    "school_name": "UMT School",
+    "location": "",
+    "contact_email": "s2023405024@umt.edu.pk",
+    "is_approved": true
+  }
+},
+{
+  "model": "schools.school",
+  "pk": 8,
+  "fields": {
+    "user": 38,
+    "school_name": "Gloss Star",
+    "location": "",
+    "contact_email": "dnasa1920@gmail.com",
+    "is_approved": true
+  }
+},
+{
+  "model": "schools.academicrecord",
+  "pk": 10,
+  "fields": {
+    "orphan": 14,
+    "submitted_by": 28,
+    "report_month": "September 2026",
+    "total_school_days": 23,
+    "days_present": 22,
+    "average_marks": "69.80",
+    "teacher_comments": "Noor Fatima is a cooperative student. He needs to work on regular attendance to further improve his academic performance.",
+    "report_card": "documents/report_cards/Noor_Fatima_September_2026.pdf",
+    "submitted_at": "2026-09-15T11:16:57.876Z"
+  }
+},
+{
+  "model": "schools.academicrecord",
+  "pk": 11,
+  "fields": {
+    "orphan": 11,
+    "submitted_by": 19,
+    "report_month": "September 2026",
+    "total_school_days": 23,
+    "days_present": 19,
+    "average_marks": "75.30",
+    "teacher_comments": "Asad Amjad is very creative, especially in arts and crafts, but needs to pay more attention in language classes.",
+    "report_card": "documents/report_cards/Asad_Amjad_September_2026.pdf",
+    "submitted_at": "2026-09-15T11:16:57.888Z"
+  }
+},
+{
+  "model": "schools.academicrecord",
+  "pk": 12,
+  "fields": {
+    "orphan": 12,
+    "submitted_by": 23,
+    "report_month": "September 2026",
+    "total_school_days": 26,
+    "days_present": 19,
+    "average_marks": "64.20",
+    "teacher_comments": "Marva Ali is an excellent student and shows great interest in science subjects. Keep up the good work!",
+    "report_card": "documents/report_cards/Marva_Ali_September_2026.pdf",
+    "submitted_at": "2026-09-15T11:16:57.896Z"
+  }
+},
+{
+  "model": "schools.academicrecord",
+  "pk": 13,
+  "fields": {
+    "orphan": 13,
+    "submitted_by": 28,
+    "report_month": "September 2026",
+    "total_school_days": 25,
+    "days_present": 20,
+    "average_marks": "93.80",
+    "teacher_comments": "Muhammad Bilal struggles a bit with keeping up in fast-paced lectures, but extra tuition is helping.",
+    "report_card": "documents/report_cards/Muhammad_Bilal_September_2026.pdf",
+    "submitted_at": "2026-09-15T11:16:57.907Z"
+  }
+},
+{
+  "model": "schools.academicrecord",
+  "pk": 14,
+  "fields": {
+    "orphan": 16,
+    "submitted_by": 38,
+    "report_month": "September 2026",
+    "total_school_days": 26,
+    "days_present": 23,
+    "average_marks": "82.00",
+    "teacher_comments": "Asma Fazal is very creative, especially in arts and crafts, but needs to pay more attention in language classes.",
+    "report_card": "documents/report_cards/Asma_Fazal_September_2026.pdf",
+    "submitted_at": "2026-09-15T11:16:57.916Z"
+  }
+},
+{
+  "model": "schools.feepayment",
+  "pk": 1,
+  "fields": {
+    "orphan": 11,
+    "school": 3,
+    "month": "september",
+    "amount_paid": "0.00",
+    "paid_at": "2026-09-15T11:04:34.639Z",
+    "paid_by": 1
+  }
+},
+{
+  "model": "schools.feepayment",
+  "pk": 2,
+  "fields": {
+    "orphan": 14,
+    "school": 6,
+    "month": "september 2026",
+    "amount_paid": "2000.00",
+    "paid_at": "2026-09-15T11:09:02.444Z",
+    "paid_by": 1
+  }
+},
+{
+  "model": "schools.feepayment",
+  "pk": 3,
+  "fields": {
+    "orphan": 11,
+    "school": 3,
+    "month": "september 2026",
+    "amount_paid": "2000.00",
+    "paid_at": "2026-09-15T11:09:04.230Z",
+    "paid_by": 1
+  }
+},
+{
+  "model": "schools.feepayment",
+  "pk": 4,
+  "fields": {
+    "orphan": 12,
+    "school": 4,
+    "month": "september 2026",
+    "amount_paid": "3000.00",
+    "paid_at": "2026-09-15T11:09:05.950Z",
+    "paid_by": 1
+  }
+},
+{
+  "model": "schools.feepayment",
+  "pk": 5,
+  "fields": {
+    "orphan": 13,
+    "school": 6,
+    "month": "september 2026",
+    "amount_paid": "2000.00",
+    "paid_at": "2026-09-15T11:09:07.092Z",
+    "paid_by": 1
+  }
+},
+{
+  "model": "schools.feepayment",
+  "pk": 6,
+  "fields": {
+    "orphan": 16,
+    "school": 8,
+    "month": "september 2026",
+    "amount_paid": "3000.00",
+    "paid_at": "2026-09-15T11:09:08.262Z",
+    "paid_by": 1
+  }
+},
+{
+  "model": "schools.feepayment",
+  "pk": 7,
+  "fields": {
+    "orphan": 12,
+    "school": 4,
+    "month": "september",
+    "amount_paid": "3000.00",
+    "paid_at": "2026-09-15T11:13:09.725Z",
+    "paid_by": 1
+  }
+},
+{
+  "model": "donors.donation",
+  "pk": 2,
+  "fields": {
+    "donor": 17,
+    "orphan": 11,
+    "amount": "5000.00",
+    "receipt_number": "RCPT-1883A147A4",
+    "donated_at": "2026-09-14T17:26:09.939Z",
+    "payment_screenshot": "",
+    "payment_status": "paid"
+  }
+},
+{
+  "model": "donors.donation",
+  "pk": 3,
+  "fields": {
+    "donor": 22,
+    "orphan": 12,
+    "amount": "5000.00",
+    "receipt_number": "RCPT-AC0D169CDF",
+    "donated_at": "2026-09-14T18:01:53.926Z",
+    "payment_screenshot": "",
+    "payment_status": "paid"
+  }
+},
+{
+  "model": "donors.donation",
+  "pk": 4,
+  "fields": {
+    "donor": 24,
+    "orphan": 13,
+    "amount": "4000.00",
+    "receipt_number": "RCPT-CDE25E075A",
+    "donated_at": "2026-09-14T20:29:09.720Z",
+    "payment_screenshot": "",
+    "payment_status": "paid"
+  }
+},
+{
+  "model": "donors.donation",
+  "pk": 5,
+  "fields": {
+    "donor": 30,
+    "orphan": 14,
+    "amount": "3000.00",
+    "receipt_number": "RCPT-DED8F65636",
+    "donated_at": "2026-09-14T21:06:36.148Z",
+    "payment_screenshot": "",
+    "payment_status": "paid"
+  }
+},
+{
+  "model": "donors.donation",
+  "pk": 6,
+  "fields": {
+    "donor": 33,
+    "orphan": 16,
+    "amount": "5000.00",
+    "receipt_number": "RCPT-5364FFA934",
+    "donated_at": "2026-09-15T08:51:21.180Z",
+    "payment_screenshot": "",
+    "payment_status": "paid"
+  }
+},
+{
+  "model": "sitecontent.feedbackentry",
+  "pk": 1,
+  "fields": {
+    "name": "Esha Irfan",
+    "email": "eshairfan2806@gmail.com",
+    "comments": "You are doing great work. I appreciate your work.",
+    "status": "Accepted",
+    "reviewed_at": "2026-09-18T08:04:49.157Z",
+    "created_at": "2026-09-18T08:04:06.883Z"
+  }
+},
+{
+  "model": "sitecontent.newslettersubscriber",
+  "pk": 1,
+  "fields": {
+    "email": "eshairfan2806@gmail.com",
+    "created_at": "2026-09-18T07:59:51.117Z"
+  }
+},
+{
+  "model": "sitecontent.newslettersubscriber",
+  "pk": 2,
+  "fields": {
+    "email": "eshairfan977@gmail.com",
+    "created_at": "2026-09-18T08:54:42.176Z"
+  }
+},
+{
+  "model": "sitecontent.newslettersubscriber",
+  "pk": 3,
+  "fields": {
+    "email": "rasakh834@gmail.com",
+    "created_at": "2026-09-18T11:11:32.924Z"
+  }
+}
+]
