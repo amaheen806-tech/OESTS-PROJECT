@@ -80,13 +80,7 @@ export function getAllDonations() {
   return api.get('/admin/donations/')
 }
 
-export function createPaymentIntent(data) {
-  return api.post('/donations/create-payment-intent/', data)
-}
 
-export function confirmPayment(donationId) {
-  return api.post('/donations/confirm-payment/', { donationId })
-}
 
 // ---------- Public / marketing ----------
 export function getPublicStats() {

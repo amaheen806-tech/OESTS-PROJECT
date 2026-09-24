@@ -15,11 +15,14 @@ class OrphanApplicationSerializer(serializers.ModelSerializer):
             'gender',
             'guardian_name',
             'guardian_cnic',
+            'child_cnic',
             'address',
             'school_name_text',
+            'school_phone',
             'student_class',
             'is_currently_studying',
             'death_certificate',
+            'b_form_document',
             'photo',
             'application_status',
             'submitted_at',
@@ -27,10 +30,13 @@ class OrphanApplicationSerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'application_status', 'submitted_at', 'is_currently_studying']
         extra_kwargs = {
             'school_name_text': {'required': False, 'allow_blank': True},
+            'school_phone': {'required': False, 'allow_blank': True},
             'student_class': {'required': False, 'allow_blank': True},
             'guardian_cnic': {'required': False, 'allow_blank': True},
+            'child_cnic': {'required': False, 'allow_blank': True},
             'age': {'required': False, 'allow_null': True},
             'death_certificate': {'required': False, 'allow_null': True},
+            'b_form_document': {'required': False, 'allow_null': True},
             'photo': {'required': False, 'allow_null': True},
         }
 
@@ -156,6 +162,8 @@ class AdminOrphanDetailSerializer(serializers.ModelSerializer):
     photo = serializers.SerializerMethodField()
     death_certificate = serializers.SerializerMethodField()
     death_certificate_name = serializers.SerializerMethodField()
+    b_form_document = serializers.SerializerMethodField()
+    b_form_document_name = serializers.SerializerMethodField()
 
     class Meta:
         model = Orphan
@@ -167,14 +175,18 @@ class AdminOrphanDetailSerializer(serializers.ModelSerializer):
             'gender',
             'guardian_name',
             'guardian_cnic',
+            'child_cnic',
             'address',
             'school_name_text',
+            'school_phone',
             'student_class',
             'is_currently_studying',
             'assigned_school_name',
             'photo',
             'death_certificate',
             'death_certificate_name',
+            'b_form_document',
+            'b_form_document_name',
             'status',
             'submitted_at',
         ]
@@ -203,12 +215,20 @@ class AdminOrphanDetailSerializer(serializers.ModelSerializer):
             return None
         return obj.death_certificate.name.split('/')[-1]
 
+    def get_b_form_document(self, obj):
+        return self._absolute(obj.b_form_document)
+
+    def get_b_form_document_name(self, obj):
+        if not obj.b_form_document:
+            return None
+        return obj.b_form_document.name.split('/')[-1]
 
 class MyApplicationSerializer(serializers.ModelSerializer):
     """Used so a guardian can view their full submitted application on the dashboard."""
 
     photo = serializers.SerializerMethodField()
     death_certificate = serializers.SerializerMethodField()
+    b_form_document = serializers.SerializerMethodField()
     assigned_school_name = serializers.SerializerMethodField()
 
     class Meta:
@@ -221,13 +241,16 @@ class MyApplicationSerializer(serializers.ModelSerializer):
             'gender',
             'guardian_name',
             'guardian_cnic',
+            'child_cnic',
             'address',
             'school_name_text',
+            'school_phone',
             'student_class',
             'is_currently_studying',
             'assigned_school_name',
             'photo',
             'death_certificate',
+            'b_form_document',
             'application_status',
             'submitted_at',
         ]
@@ -252,3 +275,11 @@ class MyApplicationSerializer(serializers.ModelSerializer):
         if request:
             return request.build_absolute_uri(obj.death_certificate.url)
         return obj.death_certificate.url
+
+    def get_b_form_document(self, obj):
+        if not obj.b_form_document:
+            return None
+        request = self.context.get('request')
+        if request:
+            return request.build_absolute_uri(obj.b_form_document.url)
+        return obj.b_form_document.url

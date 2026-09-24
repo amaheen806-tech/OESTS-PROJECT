@@ -7,7 +7,7 @@ class DonationCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Donation
-        fields = ['id', 'orphan', 'amount', 'receipt_number', 'donated_at']
+        fields = ['id', 'orphan', 'amount', 'receipt_number', 'donated_at', 'payment_screenshot']
         read_only_fields = ['id', 'receipt_number', 'donated_at']
 
     def validate_amount(self, value):
@@ -38,6 +38,8 @@ class AdminDonationSerializer(serializers.ModelSerializer):
     donor_email = serializers.CharField(source='donor.email')
     child_name = serializers.CharField(source='orphan.full_name')
 
+    payment_screenshot = serializers.ImageField(read_only=True)
+
     class Meta:
         model = Donation
-        fields = ['id', 'donor_name', 'donor_email', 'child_name', 'amount', 'receipt_number', 'donated_at']
+        fields = ['id', 'donor_name', 'donor_email', 'child_name', 'amount', 'receipt_number', 'donated_at', 'payment_status', 'payment_screenshot']

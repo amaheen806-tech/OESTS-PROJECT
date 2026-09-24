@@ -5,6 +5,7 @@ import { useAuth } from '../context/AuthContext'
 import { getOrphans, getDonationHistory, downloadReceipt } from '../services/api'
 import OrphanCard from '../components/OrphanCard'
 import DummyDonationModal from '../components/DummyDonationModal'
+import OrphanDetailModal from '../components/OrphanDetailModal'
 import PageHeader from '../components/ui/PageHeader'
 import Button from '../components/ui/Button'
 import Alert from '../components/ui/Alert'
@@ -17,6 +18,7 @@ export default function DonorPortal() {
   const { user } = useAuth()
   const [tab, setTab] = useState('browse')
   const [selectedOrphan, setSelectedOrphan] = useState(null)
+  const [selectedOrphanDetails, setSelectedOrphanDetails] = useState(null)
   const [message, setMessage] = useState('')
   const [orphanList, setOrphanList] = useState([])
   const [donationHistory, setDonationHistory] = useState([])
@@ -101,6 +103,16 @@ export default function DonorPortal() {
         onSuccess={handleDonationSuccess}
       />
 
+      <OrphanDetailModal
+        open={!!selectedOrphanDetails}
+        orphan={selectedOrphanDetails}
+        onClose={() => setSelectedOrphanDetails(null)}
+        onSponsor={(orphan) => {
+          setSelectedOrphanDetails(null)
+          openDonateForm(orphan)
+        }}
+      />
+
       <PageHeader
         title="Donor Portal"
         subtitle={`Welcome back, ${user?.fullName || user?.full_name || 'Donor'}`}
@@ -141,6 +153,7 @@ export default function DonorPortal() {
                 orphan={orphan}
                 elevated
                 actionLabel={alreadySponsored ? null : 'Sponsor This Child'}
+                onCardClick={setSelectedOrphanDetails}
                 onAction={openDonateForm}
                 secondaryAction={
                   alreadySponsored ? (

@@ -1,41 +1,29 @@
-import { useEffect, useState } from 'react'
-import { CreditCard, Lock, X } from 'lucide-react'
+import { useEffect, useState, useRef } from 'react'
+import { Upload, FileText, CheckCircle, X } from 'lucide-react'
 import { makeDonation } from '../services/api'
 import Button from './ui/Button'
 import Input from './ui/Input'
 import Alert from './ui/Alert'
 import { digitsOnly } from '../utils/inputMasks'
 
-function formatCardNumber(value) {
-  const digits = value.replace(/\D/g, '').slice(0, 16)
-  return digits.replace(/(\d{4})(?=\d)/g, '$1 ').trim()
-}
-
-function formatExpiry(value) {
-  const digits = value.replace(/\D/g, '').slice(0, 4)
-  if (digits.length <= 2) return digits
-  return `${digits.slice(0, 2)}/${digits.slice(2)}`
-}
-
 export default function DummyDonationModal({ open, orphan, onClose, onSuccess }) {
   const [amount, setAmount] = useState('')
-  const [cardName, setCardName] = useState('')
-  const [cardNumber, setCardNumber] = useState('')
-  const [expiry, setExpiry] = useState('')
-  const [cvv, setCvv] = useState('')
+  const [screenshot, setScreenshot] = useState(null)
+  const [screenshotPreview, setScreenshotPreview] = useState(null)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const fileInputRef = useRef(null)
 
   useEffect(() => {
     if (!open) return
 
     setAmount('')
-    setCardName('')
-    setCardNumber('')
-    setExpiry('')
-    setCvv('')
+    setScreenshot(null)
+    setScreenshotPreview(null)
     setError('')
     setLoading(false)
+    setSuccess(false)
 
     function onKey(e) {
       if (e.key === 'Escape') onClose?.()
@@ -55,55 +43,55 @@ export default function DummyDonationModal({ open, orphan, onClose, onSuccess })
   const school = orphan.school || orphan.school_name_text || ''
   const className = orphan.className || orphan.student_class || ''
 
+  function handleFileChange(e) {
+    const file = e.target.files?.[0]
+    if (file) {
+      setScreenshot(file)
+      setScreenshotPreview(URL.createObjectURL(file))
+    }
+  }
+
   async function handleSubmit(e) {
     e.preventDefault()
     setError('')
 
     const donationAmount = Number(amount)
-    const digits = cardNumber.replace(/\s/g, '')
 
     if (!donationAmount || donationAmount <= 0) {
       setError('Please enter a donation amount greater than zero.')
       return
     }
-    if (!cardName.trim()) {
-      setError('Please enter the name on the card.')
-      return
-    }
-    if (digits.length !== 16) {
-      setError('Please enter a valid 16-digit card number.')
-      return
-    }
-    if (!/^\d{2}\/\d{2}$/.test(expiry)) {
-      setError('Please enter expiry as MM/YY.')
-      return
-    }
-    if (!/^\d{3,4}$/.test(cvv)) {
-      setError('Please enter a valid CVV.')
+    
+    if (!screenshot) {
+      setError('Please attach the payment screenshot.')
       return
     }
 
     setLoading(true)
     try {
-      // Card fields stay on the frontend only — never sent to the backend.
-      const response = await makeDonation({
-        orphan: orphan.id,
-        amount: donationAmount,
-      })
+      const formData = new FormData()
+      formData.append('orphan', orphan.id)
+      formData.append('amount', donationAmount)
+      formData.append('payment_screenshot', screenshot)
 
-      onSuccess?.({
-        amount: donationAmount,
-        orphanName: name,
-        receiptNumber: response.data?.receiptNumber,
-      })
-      onClose?.()
+      const response = await makeDonation(formData)
+
+      setSuccess(true)
+      setTimeout(() => {
+        onSuccess?.({
+          amount: donationAmount,
+          orphanName: name,
+          receiptNumber: response.data?.receiptNumber,
+        })
+        onClose?.()
+      }, 3000)
     } catch (err) {
       const data = err.response?.data
       const firstError = data ? Object.values(data).flat()?.[0] : null
       setError(
         data?.message ||
           (typeof firstError === 'string' ? firstError : null) ||
-          'Could not complete the donation. Please try again.'
+          'Could not submit the donation. Please try again.'
       )
     } finally {
       setLoading(false)
@@ -122,7 +110,7 @@ export default function DummyDonationModal({ open, orphan, onClose, onSuccess })
           <div className="flex items-start justify-between gap-3">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-400">
-                Secure donation
+                JazzCash Transfer
               </p>
               <h2 className="mt-1 text-lg font-semibold sm:text-xl">Sponsor {name}</h2>
               {(school || className) && (
@@ -143,75 +131,103 @@ export default function DummyDonationModal({ open, orphan, onClose, onSuccess })
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4 p-5 sm:p-6">
-          <Input
-            label="Donation amount (PKR)"
-            type="text"
-            inputMode="numeric"
-            value={amount}
-            onChange={(e) => setAmount(digitsOnly(e.target.value, 8))}
-            placeholder="e.g. 5000"
-          />
-
-          <div className="rounded-xl border border-nude-200 bg-nude-50/70 p-4">
-            <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-nude-800">
-              <CreditCard size={16} className="text-gold-600" />
-              Credit / Debit card
-            </div>
-
-            <div className="flex flex-col gap-3">
-              <Input
-                label="Name on card"
-                value={cardName}
-                onChange={(e) => setCardName(e.target.value)}
-                placeholder="Full name as on card"
-              />
-              <Input
-                label="Card number"
-                value={cardNumber}
-                onChange={(e) => setCardNumber(formatCardNumber(e.target.value))}
-                placeholder="ACCT-000035"
-                inputMode="numeric"
-                autoComplete="cc-number"
-              />
-              <div className="grid grid-cols-2 gap-3">
-                <Input
-                  label="Expiry (MM/YY)"
-                  value={expiry}
-                  onChange={(e) => setExpiry(formatExpiry(e.target.value))}
-                  placeholder="MM/YY"
-                  inputMode="numeric"
-                  autoComplete="cc-exp"
-                />
-                <Input
-                  label="CVV"
-                  type="password"
-                  value={cvv}
-                  onChange={(e) => setCvv(e.target.value.replace(/\D/g, '').slice(0, 4))}
-                  placeholder="123"
-                  inputMode="numeric"
-                  autoComplete="cc-csc"
-                />
+        {success ? (
+          <div className="flex flex-col items-center justify-center space-y-4 p-8 text-center">
+            <CheckCircle size={48} className="text-green-500" />
+            <h3 className="text-xl font-bold text-nude-900">Payment Successfully Submitted!</h3>
+            <p className="text-sm text-nude-600">
+              Your donation request has been successfully submitted and is pending admin approval. You will also receive a confirmation email.
+            </p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-5 p-5 sm:p-6">
+            <div className="rounded-xl border border-gold-200 bg-gold-50/50 p-4">
+              <h3 className="mb-2 text-sm font-bold text-nude-900">Payment Instructions</h3>
+              <p className="text-sm text-nude-700 mb-4">
+                Please transfer the donation amount to the following JazzCash account and upload the screenshot of the transaction below.
+              </p>
+              
+              <div className="flex flex-col space-y-2 rounded-lg bg-white p-3 border border-nude-200">
+                <div className="flex justify-between">
+                  <span className="text-sm font-medium text-nude-600">Account Name:</span>
+                  <span className="text-sm font-bold text-nude-900">Esha Irfan</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-sm font-medium text-nude-600">Account Number:</span>
+                  <span className="text-sm font-bold text-nude-900">03229790810</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-sm font-medium text-nude-600">Bank/Provider:</span>
+                  <span className="text-sm font-bold text-nude-900">JazzCash</span>
+                </div>
               </div>
             </div>
 
-            <p className="mt-3 flex items-center gap-1.5 text-xs text-nude-500">
-              <Lock size={12} />
-              Demo payment form for UI — card details are not stored on the server.
-            </p>
-          </div>
+            <Input
+              label="Donation amount (PKR)"
+              type="text"
+              inputMode="numeric"
+              value={amount}
+              onChange={(e) => setAmount(digitsOnly(e.target.value, 8))}
+              placeholder="e.g. 5000"
+              required
+            />
 
-          {error && <Alert tone="error">{error}</Alert>}
+            <div>
+              <label className="mb-1.5 block text-sm font-semibold text-nude-900">
+                Payment Screenshot
+              </label>
+              
+              <div 
+                className={`relative flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed p-6 transition-colors hover:bg-nude-50 ${
+                  screenshot ? 'border-gold-300 bg-gold-50/30' : 'border-nude-300'
+                }`}
+                onClick={() => fileInputRef.current?.click()}
+              >
+                <input 
+                  type="file" 
+                  ref={fileInputRef} 
+                  className="hidden" 
+                  accept="image/png, image/jpeg, image/jpg"
+                  onChange={handleFileChange} 
+                />
+                
+                {screenshotPreview ? (
+                  <div className="flex flex-col items-center">
+                    <img 
+                      src={screenshotPreview} 
+                      alt="Preview" 
+                      className="mb-3 max-h-32 rounded-lg object-contain" 
+                    />
+                    <p className="text-sm font-medium text-nude-900">{screenshot.name}</p>
+                    <p className="mt-1 text-xs text-gold-600 underline">Click to change screenshot</p>
+                  </div>
+                ) : (
+                  <>
+                    <div className="mb-3 rounded-full bg-nude-100 p-3">
+                      <Upload size={24} className="text-nude-600" />
+                    </div>
+                    <p className="text-sm font-medium text-nude-900">
+                      Click to upload screenshot
+                    </p>
+                    <p className="mt-1 text-xs text-nude-500">PNG, JPG up to 5MB</p>
+                  </>
+                )}
+              </div>
+            </div>
 
-          <div className="flex flex-col gap-2 sm:flex-row">
-            <Button type="submit" variant="accent" loading={loading} className="flex-1">
-              {loading ? 'Processing...' : `Donate${amount ? ` PKR ${amount}` : ''}`}
-            </Button>
-            <Button type="button" variant="outline" onClick={onClose} disabled={loading}>
-              Cancel
-            </Button>
-          </div>
-        </form>
+            {error && <Alert tone="error">{error}</Alert>}
+
+            <div className="flex flex-col gap-2 sm:flex-row pt-2">
+              <Button type="submit" variant="accent" loading={loading} className="flex-1">
+                {loading ? 'Submitting...' : `Submit Payment`}
+              </Button>
+              <Button type="button" variant="outline" onClick={onClose} disabled={loading}>
+                Cancel
+              </Button>
+            </div>
+          </form>
+        )}
       </div>
     </div>
   )

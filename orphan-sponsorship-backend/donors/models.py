@@ -25,8 +25,8 @@ class Donation(models.Model):
     receipt_number = models.CharField(max_length=30, unique=True, blank=True)
     donated_at = models.DateTimeField(auto_now_add=True)
 
-    # Stripe-related fields
-    stripe_payment_intent_id = models.CharField(max_length=100, blank=True)
+    # Payment fields
+    payment_screenshot = models.ImageField(upload_to='payment_receipts/', blank=True, null=True)
     payment_status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
 
     def save(self, *args, **kwargs):

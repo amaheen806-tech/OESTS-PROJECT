@@ -4,9 +4,6 @@ from rest_framework.permissions import IsAuthenticated
 from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.conf import settings
-import stripe
-
-stripe.api_key = settings.STRIPE_SECRET_KEY
 
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
@@ -30,20 +27,19 @@ class MakeDonationView(APIView):
         serializer = DonationCreateSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():
             donation = serializer.save()
-            donation.payment_status = 'paid'
+            donation.payment_status = 'pending'
             donation.save(update_fields=['payment_status'])
 
             send_mail(
-                subject='Thank You for Your Donation — OESTS',
+                subject='Donation Request Received — OESTS',
                 message=(
                     f'Dear {request.user.full_name},\n\n'
-                    f'Thank you for your generous donation!\n\n'
-                    f'Amount donated: PKR {donation.amount}\n'
+                    f'Thank you for submitting your donation request.\n\n'
+                    f'Amount: PKR {donation.amount}\n'
                     f'Sponsored child: {donation.orphan.full_name}\n'
                     f'Receipt Number: {donation.receipt_number}\n'
                     f'Date: {donation.donated_at.strftime("%d %B %Y")}\n\n'
-                    f'Your support helps this child continue their education. '
-                    f'You can view progress reports anytime from your donor portal.\n\n'
+                    f'Your payment screenshot is under review by our admin. Once verified, it will be marked as paid.\n\n'
                     f'With gratitude,\n'
                     f'Orphan Educational Sponsorship and Tracking System (OESTS)'
                 ),
@@ -52,7 +48,7 @@ class MakeDonationView(APIView):
             )
 
             return Response({
-                'message': 'Thank you, your donation has been recorded.',
+                'message': 'Thank you, your payment details have been submitted successfully and are pending admin approval.',
                 'receiptNumber': donation.receipt_number,
             }, status=201)
         return Response(serializer.errors, status=400)
@@ -178,103 +174,3 @@ class AdminDonorsListView(APIView):
             'donations': donated,
         })
 
-
-class CreatePaymentIntentView(APIView):
-    """
-    POST /api/donations/create-payment-intent/
-    Step 1 of paying: tells Stripe how much money to expect, and gets back
-    a special code (client secret) that the frontend uses to show the card form.
-    """
-
-    permission_classes = [IsAuthenticated, IsDonor]
-
-    def post(self, request):
-        orphan_id = request.data.get('orphan')
-        amount = request.data.get('amount')
-
-        if not orphan_id or not amount:
-            return Response({'message': 'Orphan and amount are required.'}, status=400)
-
-        if float(amount) <= 0:
-            return Response({'message': 'Amount must be greater than zero.'}, status=400)
-
-        try:
-            from orphans.models import Orphan
-            orphan = Orphan.objects.get(id=orphan_id)
-        except Orphan.DoesNotExist:
-            return Response({'message': 'Orphan not found.'}, status=404)
-
-        # Stripe works in the smallest currency unit (e.g. cents), so we
-        # multiply by 100. Stripe's test mode does not support PKR directly,
-        # so we use USD here for the sandbox demonstration.
-        amount_in_cents = int(float(amount) * 100)
-
-        intent = stripe.PaymentIntent.create(
-            amount=amount_in_cents,
-            currency='usd',
-            metadata={
-                'donor_id': str(request.user.id),
-                'orphan_id': str(orphan.id),
-                'orphan_name': orphan.full_name,
-            },
-        )
-
-        # Create the Donation record now, marked as "pending" until payment succeeds
-        donation = Donation.objects.create(
-            donor=request.user,
-            orphan=orphan,
-            amount=amount,
-            stripe_payment_intent_id=intent.id,
-            payment_status='pending',
-        )
-
-        return Response({
-            'clientSecret': intent.client_secret,
-            'donationId': donation.id,
-        })
-
-
-class ConfirmPaymentView(APIView):
-    """
-    POST /api/donations/confirm-payment/
-    Step 2 of paying: called by the frontend after Stripe confirms the card
-    payment succeeded, so we can mark our own donation record as paid.
-    """
-
-    permission_classes = [IsAuthenticated, IsDonor]
-
-    def post(self, request):
-        donation_id = request.data.get('donationId')
-
-        try:
-            donation = Donation.objects.get(id=donation_id, donor=request.user)
-        except Donation.DoesNotExist:
-            return Response({'message': 'Donation not found.'}, status=404)
-
-        # Double-check with Stripe directly that the payment really succeeded,
-        # instead of just trusting the frontend.
-        intent = stripe.PaymentIntent.retrieve(donation.stripe_payment_intent_id)
-
-        if intent.status == 'succeeded':
-            donation.payment_status = 'paid'
-            donation.save()
-
-            send_mail(
-                subject='Thank You for Your Donation',
-                message=(
-                    f'Dear {request.user.full_name},\n\n'
-                    f'Thank you for your generous donation of PKR {donation.amount} to sponsor '
-                    f'{donation.orphan.full_name}.\n\n'
-                    f'Receipt Number: {donation.receipt_number}\n'
-                    f'Date: {donation.donated_at.strftime("%d %B %Y")}\n\n'
-                    f'With gratitude.'
-                ),
-                from_email=None,
-                recipient_list=[request.user.email],
-            )
-
-            return Response({'message': 'Payment confirmed. Thank you for your donation.'})
-
-        donation.payment_status = 'failed'
-        donation.save()
-        return Response({'message': 'Payment was not successful.'}, status=400)

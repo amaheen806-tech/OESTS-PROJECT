@@ -32,6 +32,7 @@ class Orphan(models.Model):
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
     guardian_name = models.CharField(max_length=150)
     guardian_cnic = models.CharField(max_length=20, blank=True)
+    child_cnic = models.CharField(max_length=20, blank=True, help_text='Child CNIC or B-Form number')
     address = models.TextField()
 
     school_name_text = models.CharField(
@@ -39,6 +40,7 @@ class Orphan(models.Model):
         blank=True,
         help_text='School name as typed on the form (optional)',
     )
+    school_phone = models.CharField(max_length=20, blank=True, help_text='School phone number')
     student_class = models.CharField(max_length=20, blank=True)
     is_currently_studying = models.BooleanField(
         default=True,
@@ -52,6 +54,7 @@ class Orphan(models.Model):
     )
 
     death_certificate = models.FileField(upload_to='documents/death_certificates/', blank=True, null=True)
+    b_form_document = models.FileField(upload_to='documents/b_forms/', blank=True, null=True)
     photo = models.ImageField(upload_to='documents/photos/', blank=True, null=True)
 
     application_status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='Pending')

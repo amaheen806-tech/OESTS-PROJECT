@@ -34,10 +34,13 @@ export default function OrphanApplication() {
   const [gender, setGender] = useState('')
   const [guardianName, setGuardianName] = useState('')
   const [guardianCnic, setGuardianCnic] = useState('')
+  const [childCnic, setChildCnic] = useState('')
   const [address, setAddress] = useState('')
   const [schoolName, setSchoolName] = useState('')
+  const [schoolPhone, setSchoolPhone] = useState('')
   const [studentClass, setStudentClass] = useState('')
   const [deathCertificate, setDeathCertificate] = useState(null)
+  const [bFormDocument, setBFormDocument] = useState(null)
   const [photo, setPhoto] = useState(null)
 
   const [message, setMessage] = useState('')
@@ -92,10 +95,13 @@ export default function OrphanApplication() {
     formData.append('gender', gender)
     formData.append('guardian_name', guardianName)
     formData.append('guardian_cnic', guardianCnic)
+    formData.append('child_cnic', childCnic)
     formData.append('address', address)
     formData.append('school_name_text', schoolName.trim())
+    formData.append('school_phone', schoolPhone.trim())
     formData.append('student_class', studentClass.trim())
     if (deathCertificate) formData.append('death_certificate', deathCertificate)
+    if (bFormDocument) formData.append('b_form_document', bFormDocument)
     if (photo) formData.append('photo', photo)
 
     setSubmitting(true)
@@ -220,12 +226,24 @@ export default function OrphanApplication() {
           />
         </div>
 
-        <Input
-          label="Home Address"
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-          placeholder="House, street, city"
-        />
+        <div className="grid gap-4 sm:grid-cols-2">
+          <Input
+            label="Child CNIC / B-Form (optional)"
+            type="text"
+            inputMode="numeric"
+            value={childCnic}
+            onChange={(e) => setChildCnic(formatCnic(e.target.value))}
+            placeholder="35202-1234567-1"
+            maxLength={15}
+            hint="13 digits. Format: 35202-1234567-1"
+          />
+          <Input
+            label="Home Address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            placeholder="House, street, city"
+          />
+        </div>
 
         <h2 className="mt-2 font-semibold text-nude-900">School Information</h2>
         <p className="text-sm text-nude-500">
@@ -240,6 +258,12 @@ export default function OrphanApplication() {
             placeholder="Current school (if any)"
           />
           <Input
+            label="School Phone (optional)"
+            value={schoolPhone}
+            onChange={(e) => setSchoolPhone(e.target.value)}
+            placeholder="School contact number"
+          />
+          <Input
             label="Current Class (optional)"
             value={studentClass}
             onChange={(e) => setStudentClass(e.target.value)}
@@ -248,7 +272,7 @@ export default function OrphanApplication() {
         </div>
 
         <h2 className="mt-2 font-semibold text-nude-900">Document Upload</h2>
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-3">
           <UploadBox
             label={
               deathCertificate
@@ -256,6 +280,14 @@ export default function OrphanApplication() {
                 : 'Upload death certificate (PDF/JPG, max 5MB)'
             }
             onFileSelected={setDeathCertificate}
+          />
+          <UploadBox
+            label={
+              bFormDocument
+                ? bFormDocument.name
+                : 'Upload B-Form/CNIC (PDF/JPG, max 5MB)'
+            }
+            onFileSelected={setBFormDocument}
           />
           <UploadBox
             label={
@@ -380,6 +412,11 @@ function OrphanDashboard({ application, user }) {
                 value={application.guardian_cnic || '—'}
               />
               <DetailField
+                icon={CreditCard}
+                label="Child CNIC / B-Form"
+                value={application.child_cnic || '—'}
+              />
+              <DetailField
                 icon={MapPin}
                 label="Home Address"
                 value={application.address || '—'}
@@ -410,6 +447,11 @@ function OrphanDashboard({ application, user }) {
           />
           <DetailField
             icon={BookOpen}
+            label="School Phone"
+            value={application.school_phone || '—'}
+          />
+          <DetailField
+            icon={BookOpen}
             label="Current Class"
             value={
               application.student_class ||
@@ -426,7 +468,7 @@ function OrphanDashboard({ application, user }) {
       </div>
 
       {/* Documents */}
-      {(application.photo || application.death_certificate) && (
+      {(application.photo || application.death_certificate || application.b_form_document) && (
         <div className="ui-card-elevated p-6 sm:p-8">
           <h3 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-nude-500">
             <FileText size={16} className="text-gold-600" />
@@ -453,6 +495,17 @@ function OrphanDashboard({ application, user }) {
               >
                 <FileText size={16} className="text-gold-600" />
                 View death certificate
+              </a>
+            )}
+            {application.b_form_document && (
+              <a
+                href={application.b_form_document}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-nude-200 bg-nude-50 px-4 py-2.5 text-sm font-medium text-nude-800 transition-colors hover:border-gold-500 hover:bg-gold-500/10"
+              >
+                <FileText size={16} className="text-gold-600" />
+                View B-Form
               </a>
             )}
           </div>

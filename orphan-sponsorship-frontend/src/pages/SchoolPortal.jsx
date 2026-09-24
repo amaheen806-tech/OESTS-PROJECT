@@ -25,6 +25,7 @@ export default function SchoolPortal() {
   const [loadingPayroll, setLoadingPayroll] = useState(false)
   const [payrollError, setPayrollError] = useState('')
 
+  const [classFilter, setClassFilter] = useState('')
   const [studentId, setStudentId] = useState('')
   const [reportMonth, setReportMonth] = useState('')
   const [totalDays, setTotalDays] = useState('')
@@ -134,6 +135,20 @@ export default function SchoolPortal() {
     }
   }
 
+  const availableClasses = [...new Set(students.map((s) => s.className))].filter(Boolean)
+  const filteredStudents = classFilter
+    ? students.filter((s) => s.className === classFilter)
+    : students
+
+  // Auto-select first student when filter changes
+  useEffect(() => {
+    if (filteredStudents.length > 0 && !filteredStudents.find(s => s.id === studentId)) {
+      setStudentId(filteredStudents[0].id)
+    } else if (filteredStudents.length === 0) {
+      setStudentId('')
+    }
+  }, [classFilter, filteredStudents, studentId])
+
   return (
     <div>
       <SuccessNotification
@@ -191,14 +206,30 @@ export default function SchoolPortal() {
           )}
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+            {availableClasses.length > 0 && (
+              <Select
+                label="Filter by Class (Optional)"
+                value={classFilter}
+                onChange={(e) => setClassFilter(e.target.value)}
+              >
+                <option value="">All Classes</option>
+                {availableClasses.map((cls) => (
+                  <option key={cls} value={cls}>
+                    Class {cls}
+                  </option>
+                ))}
+              </Select>
+            )}
+
             <Select
               label="Select Student"
               value={studentId}
               onChange={(e) => setStudentId(e.target.value)}
             >
-              {students.map((s) => (
+              {filteredStudents.length === 0 && <option value="">No students in this class</option>}
+              {filteredStudents.map((s) => (
                 <option key={s.id} value={s.id}>
-                  {s.name} — Class {s.className}
+                  {s.name} (Class {s.className})
                 </option>
               ))}
             </Select>
