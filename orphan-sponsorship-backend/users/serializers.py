@@ -71,6 +71,39 @@ class VerifyOTPSerializer(serializers.Serializer):
         return user
 
 
+class DirectRegisterSerializer(serializers.Serializer):
+    """
+    Direct registration without OTP. Validates details and creates the account.
+    Email verification via SMTP can be added in the future.
+    """
+
+    fullName = serializers.CharField()
+    email = serializers.EmailField()
+    password = serializers.CharField(write_only=True)
+    phone = serializers.CharField(required=False, allow_blank=True)
+    role = serializers.ChoiceField(choices=CustomUser.ROLE_CHOICES)
+
+    def validate_email(self, value):
+        if CustomUser.objects.filter(email=value).exists():
+            raise serializers.ValidationError('An account with this email already exists.')
+        return value
+
+    def validate_password(self, value):
+        return check_strong_password(value)
+
+    def create(self, validated_data):
+        user = CustomUser(
+            username=validated_data['email'],
+            email=validated_data['email'],
+            full_name=validated_data['fullName'],
+            phone=validated_data.get('phone', ''),
+            role=validated_data['role'],
+        )
+        user.set_password(validated_data['password'])
+        user.save()
+        return user
+
+
 class UserSerializer(serializers.ModelSerializer):
     """A simple representation of the logged in user, sent back to the frontend."""
 

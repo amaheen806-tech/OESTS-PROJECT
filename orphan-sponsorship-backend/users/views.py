@@ -10,7 +10,7 @@ from django.core.mail import send_mail
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError as DjangoValidationError
 
-from .serializers import SendOTPSerializer, VerifyOTPSerializer, LoginSerializer, UserSerializer
+from .serializers import SendOTPSerializer, VerifyOTPSerializer, DirectRegisterSerializer, LoginSerializer, UserSerializer
 from .models import CustomUser, OTPVerification
 
 
@@ -87,6 +87,29 @@ class VerifyOTPView(APIView):
 
             return Response({'message': 'Account created successfully.'}, status=201)
         return Response(serializer.errors, status=400)
+
+
+class DirectRegisterView(APIView):
+    """
+    POST /api/auth/register/ -- Direct registration without OTP.
+    Validates the person's details and creates the account immediately.
+    Email verification can be added in the future via SMTP.
+    """
+
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        serializer = DirectRegisterSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'message': 'Account created successfully! You can now login.'}, status=201)
+
+        # Return a clean error message
+        errors = serializer.errors
+        first = next(iter(errors.values()), None)
+        if isinstance(first, list):
+            first = first[0]
+        return Response({'message': first or 'Registration failed. Please try again.'}, status=400)
 
 
 class LoginView(APIView):

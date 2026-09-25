@@ -10,7 +10,7 @@ import {
   Baby,
   ShieldCheck,
 } from 'lucide-react'
-import { sendOTP } from '../services/api'
+import { registerUser } from '../services/api'
 import AuthLayout from '../components/ui/AuthLayout'
 import Button from '../components/ui/Button'
 import Input from '../components/ui/Input'
@@ -40,13 +40,15 @@ export default function Register() {
   const [agree, setAgree] = useState(false)
 
   const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
   const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate()
 
-  async function handleSendOTP(e) {
+  async function handleRegister(e) {
     e.preventDefault()
     setError('')
+    setSuccess('')
 
     if (!fullName || !email || !password || !phone) {
       setError('Please fill in all the required fields.')
@@ -80,20 +82,23 @@ export default function Register() {
 
     setLoading(true)
     try {
-      await sendOTP(registration)
-      sessionStorage.setItem('oests_pending_registration', JSON.stringify(registration))
-      navigate('/verify-email', { state: registration })
+      await registerUser(registration)
+      setSuccess('Account created successfully! Redirecting to login...')
+      setTimeout(() => navigate('/login'), 2000)
     } catch (err) {
       const responseData = err.response?.data
+      const msg = responseData?.message
       const firstError = responseData ? Object.values(responseData)[0] : null
-      
-      let errorMessage = 'Could not send the verification code. Please try again.'
-      if (typeof firstError === 'string') {
+
+      let errorMessage = 'Registration failed. Please try again.'
+      if (typeof msg === 'string') {
+        errorMessage = msg
+      } else if (typeof firstError === 'string') {
         errorMessage = firstError
       } else if (Array.isArray(firstError)) {
         errorMessage = firstError[0]
       }
-      
+
       setError(errorMessage)
     } finally {
       setLoading(false)
@@ -103,7 +108,7 @@ export default function Register() {
   return (
     <AuthLayout
       title="Create Account"
-      subtitle="Choose your role and verify your email to get started."
+      subtitle="Choose your role and fill in your details to get started."
       footer={
         <>
           Already have an account?{' '}
@@ -147,7 +152,13 @@ export default function Register() {
         </Alert>
       )}
 
-      <form onSubmit={handleSendOTP} className="flex flex-col gap-4">
+      {success && (
+        <Alert tone="success" className="mb-4">
+          {success}
+        </Alert>
+      )}
+
+      <form onSubmit={handleRegister} className="flex flex-col gap-4">
         <Input
           label="Full Name"
           icon={User}
@@ -204,7 +215,7 @@ export default function Register() {
         </label>
 
         <Button type="submit" variant="accent" loading={loading} className="mt-1 w-full">
-          {loading ? 'Sending code...' : 'Send Verification Code'}
+          {loading ? 'Creating account...' : 'Create Account'}
         </Button>
       </form>
     </AuthLayout>
