@@ -1,8 +1,7 @@
 import axios from 'axios'
 
-// This is the base URL of the Django backend.
-// Change this if your backend runs on a different address or port.
-const BASE_URL = 'http://127.0.0.1:8000/api'
+// Use VITE_API_URL if defined, otherwise fallback to the production Render URL
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://oests-project.onrender.com/api'
 
 const api = axios.create({
   baseURL: BASE_URL,
