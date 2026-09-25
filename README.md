@@ -46,7 +46,7 @@ Built with Django 4.2 and Django REST Framework. Deployed on Render with Postgre
 - Donor management (sponsorships, donations, PDF receipts)
 - Admin operations (dashboard, payroll, feedback, newsletter)
 
-**Key integrations:** Cloudinary (media storage), Stripe (payments), Gmail SMTP (email notifications)
+**Key integrations:** Cloudinary (media storage), JazzCash (payments), Gmail SMTP (email notifications)
 
 **Run locally:**
 ```
@@ -67,5 +67,5 @@ python manage.py runserver
 | Database | PostgreSQL |
 | Auth | SimpleJWT (token-based) |
 | Media | Cloudinary |
-| Payments | Stripe |
+| Payments | JazzCash |
 | Deployment | Vercel (frontend), Render (backend) |
