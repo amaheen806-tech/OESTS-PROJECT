@@ -86,11 +86,15 @@ export default function Register() {
     } catch (err) {
       const responseData = err.response?.data
       const firstError = responseData ? Object.values(responseData)[0] : null
-      setError(
-        Array.isArray(firstError)
-          ? firstError[0]
-          : 'Could not send the verification code. Please try again.'
-      )
+      
+      let errorMessage = 'Could not send the verification code. Please try again.'
+      if (typeof firstError === 'string') {
+        errorMessage = firstError
+      } else if (Array.isArray(firstError)) {
+        errorMessage = firstError[0]
+      }
+      
+      setError(errorMessage)
     } finally {
       setLoading(false)
     }
