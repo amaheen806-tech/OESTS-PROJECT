@@ -108,14 +108,24 @@ export default function Register() {
           </Link>
         </>
       }
-      beside={
-        <div className="flex flex-row flex-wrap lg:flex-col gap-3 justify-center">
+
+      backTo="/login"
+      backLabel="Back to login"
+    >
+
+
+      {/* Role Selection */}
+      <div className="mb-6">
+        <label className="mb-3 block text-sm font-medium text-nude-700 text-center">
+          Select your registration role:
+        </label>
+        <div className="flex flex-row flex-wrap justify-center gap-3">
           {roleOptions.map(({ key, label }) => (
             <button
               key={key}
               type="button"
               onClick={() => setRole(key)}
-              className={`group relative flex h-12 w-[100px] items-center justify-center rounded-full border transition-all duration-300 ${
+              className={`group relative flex h-11 w-28 items-center justify-center rounded-full border transition-all duration-300 ${
                 role === key
                   ? 'border-gold-500 bg-gold-500 text-white shadow-md scale-105'
                   : 'border-nude-200 bg-white text-nude-600 hover:border-gold-400 hover:bg-gold-50 hover:text-gold-600'
@@ -125,11 +135,7 @@ export default function Register() {
             </button>
           ))}
         </div>
-      }
-      backTo="/login"
-      backLabel="Back to login"
-    >
-
+      </div>
 
       {error && (
         <Alert tone="error" className="mb-4">
