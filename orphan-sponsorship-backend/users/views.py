@@ -34,16 +34,24 @@ class SendOTPView(APIView):
             otp_code = OTPVerification.generate_otp()
             OTPVerification.objects.create(email=email, otp_code=otp_code)
 
-            send_mail(
-                subject='Your Verification Code',
-                message=(
-                    f'Your verification code is: {otp_code}\n\n'
-                    f'This code will expire in 10 minutes. If you did not request this, '
-                    f'you can safely ignore this email.'
-                ),
-                from_email=None,
-                recipient_list=[email],
-            )
+            try:
+                from django.conf import settings
+                send_mail(
+                    subject='Your Verification Code',
+                    message=(
+                        f'Your verification code is: {otp_code}\n\n'
+                        f'This code will expire in 10 minutes. If you did not request this, '
+                        f'you can safely ignore this email.'
+                    ),
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    recipient_list=[email],
+                    fail_silently=False,
+                )
+            except Exception as e:
+                # Remove OTP so they can try again
+                OTPVerification.objects.filter(email=email).delete()
+                return Response({'message': f'Could not send email: {str(e)}'}, status=500)
+
             return Response({'message': 'A verification code has been sent to your email.'})
         return Response(serializer.errors, status=400)
 

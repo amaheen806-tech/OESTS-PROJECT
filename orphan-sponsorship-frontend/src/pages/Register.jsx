@@ -109,7 +109,7 @@ export default function Register() {
         </>
       }
       beside={
-        <div className="flex flex-row lg:flex-col gap-3 justify-center">
+        <div className="flex flex-row flex-wrap lg:flex-col gap-3 justify-center">
           {roleOptions.map(({ key, label }) => (
             <button
               key={key}

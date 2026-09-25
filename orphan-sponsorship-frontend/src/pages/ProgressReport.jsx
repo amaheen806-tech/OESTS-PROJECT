@@ -71,7 +71,7 @@ export default function ProgressReport() {
         subtitle={`${report.school} · Class ${report.className}`}
       />
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid gap-4 sm:grid-cols-3">
         <SummaryCard label="Latest Attendance" value={`${latest.attendance}%`} />
         <SummaryCard label="Average Attendance" value={`${averageAttendance.toFixed(1)}%`} />
         <SummaryCard label="Latest Marks" value={`${latest.average_marks}%`} />

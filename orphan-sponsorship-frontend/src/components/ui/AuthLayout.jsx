@@ -119,7 +119,7 @@ export default function AuthLayout({
         </div>
 
         <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col justify-center items-center">
-          <div className="relative flex w-full max-w-md items-start lg:max-w-none lg:justify-center">
+          <div className="relative flex flex-col lg:flex-row w-full max-w-md items-center lg:items-start lg:max-w-none lg:justify-center">
             {/* The Main Card */}
             <div className="animate-fade-up w-full max-w-md rounded-2xl border border-nude-200/80 bg-white/90 p-6 shadow-sm backdrop-blur-sm sm:p-8 relative z-10">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-600">
